@@ -1,0 +1,54 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="App1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:data="using:App1.Models">
+
+    <Page.TopAppBar>
+        <AppBar>
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:ConnectionId='2' x:Name="bookmarShowkBtn" Icon="Bookmarks" Label="Bookmark"                               />
+                <AppBarButton x:ConnectionId='3' x:Name="searchBtn" Icon="Find" Label="Search"                         />
+                <TextBox x:ConnectionId='4' x:Name="searchText" Width="200" Height="auto"/>
+            </StackPanel>
+
+        </AppBar>
+    </Page.TopAppBar>
+
+    <Grid>
+        <GridView x:ConnectionId='5' Name="NewsItemGrid"                                                            IsItemClickEnabled="True">
+            <GridView.ItemTemplate>
+                <DataTemplate                          >
+                    <Grid x:ConnectionId='7'>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Width="auto" Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Width="50" Height="50">
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding urlToImage}" />
+                                </Image.Source>
+                            </Image>
+                            <StackPanel Grid.Column="1" Background="White">
+                                <TextBlock x:ConnectionId='8'                        FontSize="10" Foreground="Brown"/>
+                                <TextBlock x:ConnectionId='9'                       FontSize="25" Foreground="Brown"/>
+                                <TextBlock x:ConnectionId='10'                            />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+
+</Page>
+
